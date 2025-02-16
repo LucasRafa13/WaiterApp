@@ -3,8 +3,10 @@ import mongoose from 'mongoose'
 
 import { router } from './router'
 
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/waiterapp'
+
 mongoose
-  .connect('mongodb://localhost:27017')
+  .connect(mongoUri)
   .then(() => {
     console.log('Connected to MongoDB')
     const app = express()
