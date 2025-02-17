@@ -7,8 +7,8 @@ export async function createCategory(req: Request, res: Response) {
 
     const category = await Category.create({ icon, name })
     res.status(201).json(category)
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
     res.status(500).json({ error: 'Error creating category!' })
   }
 }
