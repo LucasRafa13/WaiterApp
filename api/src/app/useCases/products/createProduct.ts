@@ -1,11 +1,13 @@
-import { Request, Response } from 'express'
+import { Request, Response } from 'express';
 
-import { Product } from '../../models/Product'
+import { Product } from '../../models/Product';
 
 export async function createProduct(req: Request, res: Response) {
   try {
-    const imagePath = req.file?.filename
-    const { name, description, price, category, ingredients } = req.body
+    const imagePath = req.file?.filename;
+
+    const { name, description, price, category, ingredients } = req.body;
+
     const product = await Product.create({
       name,
       description,
@@ -13,10 +15,11 @@ export async function createProduct(req: Request, res: Response) {
       price: Number(price),
       category,
       ingredients: ingredients ? JSON.parse(ingredients) : [],
-    })
-    res.status(201).json(product)
+    });
+
+    res.status(201).json(product);
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'Error fetching products!' })
+    console.log(error);
+    res.sendStatus(500);
   }
 }

@@ -1,13 +1,13 @@
-import { Request, Response } from 'express'
+import { Request, Response } from 'express';
 
-import { Product } from '../../models/Product'
+import { Product } from '../../models/Product';
 
 export async function listProducts(req: Request, res: Response) {
   try {
-    const products = await Product.find()
-    res.json(products)
-  } catch (err) {
-    console.error(err)
-    res.status(500).json({ error: 'Error fetching products!' })
+    const products = await Product.find();
+
+    res.json(products);
+  } catch (error) {
+    console.log(error);
   }
 }

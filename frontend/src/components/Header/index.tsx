@@ -1,5 +1,5 @@
-import logo from '../../assets/images/logo.svg'
-import { Container, Content } from './styles'
+import { Container, Content } from './styles';
+import logo from '../../assets/images/logo.svg';
 
 export function Header() {
   return (
@@ -10,8 +10,8 @@ export function Header() {
           <h2>Acompanhe os pedidos dos clientes</h2>
         </div>
 
-        <img src={logo} alt="WaiterApp" />
+        <img src={logo} alt="Garçom e Garçonete" />
       </Content>
     </Container>
-  )
+  );
 }
